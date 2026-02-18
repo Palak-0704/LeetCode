@@ -14,11 +14,9 @@ public:
             while(left<right && !isvowel(s[right])){
                 right--;
             }
-            if(left <right){
-                swap(s[left], s[right]);
-                left++;
-                right--;
-            }
+            swap(s[left], s[right]);
+            left++;
+            right--;
         }
         return s;
     }

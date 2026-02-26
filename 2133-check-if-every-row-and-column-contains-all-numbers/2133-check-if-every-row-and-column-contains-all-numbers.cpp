@@ -9,7 +9,7 @@ public:
                 s.insert(matrix[i][j]);
                 x.insert(matrix[j][i]);
             }
-            if(s.size()!=n && x.size()!=n){
+            if(s.size()!=n || x.size()!=n){
                 return false;
             }
         }

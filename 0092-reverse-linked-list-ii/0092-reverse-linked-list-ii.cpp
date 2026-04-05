@@ -11,18 +11,24 @@
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if(!head ||left==right){
+            return head;
+        }
         ListNode * node= head;
         stack<int> st;
-        for(int i=1;i <= left-1;i++){
+        for(int i=1;i <left;i++){
             node=node->next;
         }
         ListNode * temp=node;
-        int i=1;
-        while(i <right && temp!=NULL){
+        for(int i=left;i<=right && temp!=NULL;i++){
+            st.push(temp->val);
+            temp=temp->next;
+        }
+        /* while(i <=right && temp!=NULL){
             st.push(temp->val);
             temp=temp->next;
             i++;
-        }
+        } */
         while(!st.empty()){
             node->val = st.top();
             st.pop();

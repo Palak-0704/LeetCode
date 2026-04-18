@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    void solve(TreeNode * root, string str ,vector<string> &res){
+    /* void solve(TreeNode * root, string str ,vector<string> &res){
         if(root == NULL){
             return ;
         }
@@ -24,7 +24,23 @@ public:
         if(!root->left && !root->right){
             res.push_back(str);
         }
+    } */
+    void solve(TreeNode * root, string str ,vector<string> &res){
+        if(root == NULL){
+            return ;
+        }
+        str += to_string(root->val);
+
+        if(!root->left && !root->right){
+            res.push_back(str);
+            return ;
+        }
+        
+        str.append("->");
+        solve(root->left,str,res);
+        solve(root->right,str,res);
     }
+
     vector<string> binaryTreePaths(TreeNode* root) {
         vector<string>res;
         string str;
